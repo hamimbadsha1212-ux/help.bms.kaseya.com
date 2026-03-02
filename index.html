@@ -1,881 +1,128 @@
-
-
-
-<!DOCTYPE html>
-<!--
-
--->
-<html><head>
-    <title>Coin Master Spins Generator</title>
-<meta name="description" content="With the template you can generate spins on your coin master account."/>
-<meta property="og:title" content="Coin Master Spins Generator"/>
-<meta property="og:description" content="With the template you can generate spins on your coin master account."/>
-<meta name="referrer" content="no-referrer">
-
-<!-- Analytics -->
-
-<script
-        src="https://browser.sentry-cdn.com/6.4.1/bundle.min.js"
-        integrity="sha384-THoc7rflwZFKTdZNgv6jLFFDn299Uv3t1SW5B4yGLvLiCRTYP9ys6vXZcMl95TQF"
-        crossorigin="anonymous"
-></script>
-<script>
-    Sentry.init({
-        dsn: 'https://e0e6a104cb354a09bf094a90e676ea13@o425163.ingest.sentry.io/5780930',
-        tracesSampleRate: 0.01
-    });
-</script>
-<script>
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-
-    ga('create', 'UA-231689389-1', 'auto');
-    ga('send', 'pageview');
-
-</script>
-
-
-    <style>
-        .header_blue {
-            background: #1565c0;
-            padding: 80px 0 20px;
-            color: #fff;
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
-        .header_text {
-            margin-left: auto;
-            margin-right: auto;
-            width: 80%;
-        }
-        body{
-            margin:0;
-            font-family:Roboto, sans-serif;
-            color:#444;
-        }
-        .unlockBtn:hover{
-            box-shadow: 0 3px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
-        }
-        .unlockBtn {
-            background: #2196f3;
-            border: none;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24);
-            min-height: 31px;
-            min-width: 70px;
-            padding: 2px 16px;
-            text-align: center;
-            text-shadow: none;
-            text-transform: uppercase;
-            -webkit-transition: all 280ms ease;
-            transition: all 280ms ease;
-            box-sizing: border-box;
-            cursor: pointer;
-            -webkit-appearance: none;
-            display: inline-block;
-            vertical-align: middle;
-            font: 500 14px/31px Roboto,sans-serif!important;
-            outline: 0!important;
-            color:white;
-        }
-        .content-container{
-            width:80%;margin:0 auto;
-        }
-        @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'),local(Roboto-Light),url(//fonts.gstatic.com/s/roboto/v15/Pru33qjShpZSmG3z6VYwnRJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'),local(Roboto-Light),url(//fonts.gstatic.com/s/roboto/v15/Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local(Roboto-Medium),url(//fonts.gstatic.com/s/roboto/v15/oOeFwZNlrTefzLYmlVV1UBJtnKITppOI_IvcXXDNrsc.woff2) format("woff2");unicode-range:U+0100-024F,U+1E00-1EFF,U+20A0-20AB,U+20AD-20CF,U+2C60-2C7F,U+A720-A7FF}@font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'),local(Roboto-Medium),url(//fonts.gstatic.com/s/roboto/v15/RxZJdnzeo3R5zSexge8UUVtXRa8TVwTICgirnJhmVJw.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2212,U+2215,U+E0FF,U+EFFD,U+F000}
-        
-body{
-
-    font-family: 'Kanit Light', sans-serif;
-    overflow-y: auto;
-    margin: 0;
-    padding: 0;
-    color: black;
-    background-size: 100%;
-    /* background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(0, #a21a0f), color-stop(100%, #efaa23));
-    background-image: -webkit-linear-gradient(135deg, #a21a0f, #efaa23);
-    background-image: -moz-linear-gradient(45deg, #a21a0f, #efaa23);
-    background-image: -ms-linear-gradient(45deg, #a21a0f 0, #efaa23 100%);
-    background-image: -o-linear-gradient(45deg, #a21a0f, #efaa23);
-    background-image: linear-gradient(135deg, #a21a0f, #efaa23); */
-
-}
-
-div{
-    display: block;
-}
-
-.center{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-}
-
-.main{
-    text-align: center;
-    background: #f0f0f0;
-    width: 90%;
-    max-width:40em;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1em;
-    border-color: white;
-    border-style: solid;
-    border-width: 0.1em;
-    box-shadow: 0 0 1em black;
-    box-sizing: border-box;
-    z-index: 5;
-}
-
-.points-box{
-    background: whitesmoke;
-    box-shadow: 0 0 10px black;
-    width: 50%;
-    max-width: 10em;
-    border-radius: 1em;
-    justify-content: center;
-    margin: 1em auto;
-    animation: pulse 1s ease infinite;
-}
-
-.points-image{
-    width: 5em;
-    position: relative;
-    display: inline;
-    margin: 0.5em;
-}
-
-#vbucksamount1{
-    display: flex;
-    justify-content: center;
-    padding: 0 0 1em 0;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(0.98);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-    }
-
-    70% {
-        transform: scale(1);
-        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0);
-    }
-
-    100% {
-        transform: scale(0.98);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-}
-
-.mainimg{
-    width: 15em;
-    position: relative;
-    margin:-6.5em 0 -1em 0;
-}
-
-.step0-txt{
-    font-weight: 600;
-    font-size: 1.6em;
-    width: 80%;
-    margin: 1em auto;
-
-}
-
-.user-box{
-    overflow: auto;
-    position: relative;
-}
-
-.user-icon{
-    margin-top: 1.2em;
-    position: absolute;
-    width: 2.5em;
-    z-index: 2;
-    margin-left: 1.4em;
-}
-
-.user-input{
-    position: relative;
-    background: #FFFFFF;
-    outline: none;
-    box-shadow: none;
-    width: 15em;
-    height: 3em;
-    padding: 0 1em 0 2.5em;
-    font-size: 1.75em;
-    border-radius: 0.6em;
-    border-width: 0.12em;
-    border-color: #d4d4d4;
-    border-style: solid;
-    font-weight: bold;
-    box-sizing: border-box;
-    max-width: 40em;
-    vertical-align: middle;
-}
-
-.shakeanim{
-    animation: shake 0.3s ease-in-out;
-}
-
-@keyframes shake {
-    0%, 100% {
-        margin-left: 0;
-    }
-    20%, 80%{
-        margin-left: -0.5em;
-    }
-    40%, 60%{
-        margin-left: 0.5em;
-    }
-}
-
-input, textarea{
-    color: black;
-}
-
-::placeholder{
-    color: black;
-    opacity:40%;
-}
-
-.btn0 {
-    background: #a21a0f;
-    color: white;
-    width: 30%;
-    padding: 1em 0 1em 0;
-    margin: 0 auto;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border-radius: 0.5em;
-    font-weight: 900;
-    font-size: 1.5em;
-    box-sizing: border-box;
-    font-family: "Kanit Medium", sans-serif;
-}
-
-.btn0:hover{
-    background:#a21a0f;
-    transform: scale(1.1);
-    cursor: pointer;
-    box-shadow: 0 0 0.5em #a21a0f;
-}
-
-.btn1{
-    background: #a21a0f;
-    color: white;
-    width: 33%;
-    padding: 0.5em 0 0.5em 0;
-    margin: 1.5em auto;
-    border-radius: 0.5em;
-    font-weight: 600;
-    font-size: 1.5em;
-    box-sizing: border-box;
-    font-family: "Kanit Medium", sans-serif;
-    animation: zoom-in-zoom-out 1s ease infinite;
-}
-
-.btn1:hover{
-    background:whitesmoke;
-    color: #a21a0f;
-    transform: scale(1.1);
-    cursor: pointer;
-    box-shadow: 0 0 0.5em #a21a0f;
-}
-
-@keyframes zoom-in-zoom-out {
-    0% {
-        transform: scale(1, 1);
-    }
-    50% {
-        transform: scale(1.1, 1.1);
-    }
-    100% {
-        transform: scale(1, 1);
-    }
-}
-
-.devices{
-    display: flex;
-    justify-content: center;
-    margin-top: 1em;
-    box-sizing: border-box;
-    cursor: pointer;
-    float: none;
-    margin-bottom: 2em;
-}
-
-.platform{
-    background: #FFFFFF;
-    width: 8em;
-    height: 5.5em;
-    border-radius: 1em;
-    padding-top: 1em;
-    margin: 1em;
-    box-shadow: 0 0 0.6em black;
-}
-
-.platform:hover{
-    background:#FFFFFF;
-    transform: scale(1.1);
-    box-shadow: 0 0 0.5em #efaa23;
-
-}
-
-.search0{
-    margin: 0 auto;
-    text-align: center;
-    height: 10em;
-    font-weight: 600;
-}
-
-.search1{
-    margin: 0 auto;
-    text-align: center;
-    height: 22em;
-    margin-top: 2em;
-}
-
-.laststep{
-    margin: 0 auto;
-    text-align: center;
-    height: auto;
-    margin-top: 2em;
-    font-family: 'Kanit Medium', sans-serif;
-}
-
-.searching{
-    width: fit-content;
-    background: #FFFFFF;
-    margin: 0 auto;
-    border-radius: 1em;
-    padding:0.5em;
-    font-size: 1.2em;
-    box-shadow: 0 0 0.6em black;
-}
-
-.searchingname{
-    margin: 0 1.5em;
-}
-
-#dots:after {
-    content: '.';
-    animation: dots 1s steps(5, end) infinite;}
-
-@keyframes dots {
-    0%, 20% {
-        color: rgba(0,0,0,0);
-        text-shadow:
-                .25em 0 0 rgba(0,0,0,0),
-                .5em 0 0 rgba(0,0,0,0);}
-    40% {
-        color: black;
-        text-shadow:
-                .25em 0 0 rgba(0,0,0,0),
-                .5em 0 0 rgba(0,0,0,0);}
-    60% {
-        text-shadow:
-                .25em 0 0 black,
-                .5em 0 0 rgba(0,0,0,0);}
-    80%, 100% {
-        text-shadow:
-                .25em 0 0 black,
-                .5em 0 0 black;}}
-
-
-.checkmark-icon{
-    width: 1em;
-    float: right;
-    margin-left: -1em;
-    margin-top: -1.2em;
-}
-
-.devices-pic{
-    width: 3em;
-    margin-top: 0.7em;
-}
-
-.devices-pic.ios{
-    margin-top: 0.5em;
-}
-
-.secondimg{
-    float:right;
-    width: 15em;
-    margin-top: 6.5em;
-    margin-right: 5em;
-}
-
-.VBucks-Div{
-    margin: 1em 0 2em 0;
-    cursor: pointer;
-}
-
-.VBucks-Div2{
-    margin: 1em 0 2em 0;
-    cursor: pointer;
-}
-
-.VBucks-pic{
-    width: 4em;
-}
-
-.vbucks-text{
-    font-size: 1.8em;
-    font-weight: 800;
-    margin-left:0.5em;
-}
-
-.VBucks{
-    background: #FFFFFF;
-    box-shadow: 0 0 0.6em black;
-    border-radius: 1em;
-    margin: 1em auto;
-    display: flex;
-    box-sizing: border-box;
-    position: relative;
-    width: 90%;
-    max-width: 40em;
-    height: 5em;
-    align-items: center;
-    justify-content: center;
-}
-
-.VBucks:hover{
-    background:#FFFFFF;
-    transform: scale(1.02);
-    box-shadow: 0 0 0.5em #a21a0f;
-    cursor: pointer;
-}
-
-.Selected{
-    background: #a21a0f;
-    box-shadow: 0 0 0.5em #a21a0f;
-    color: #FFFFFF;
-    border-radius: 1em;
-    margin: 0.5em auto;
-    display: flex;
-    box-sizing: border-box;
-    position: relative;
-    width: 90%;
-    max-width: 40em;
-    height: 5em;
-    align-items: center;
-    justify-content: center;
-}
-
-.progress-bg{
-    margin-top: 0.5em;
-    width: 26em;
-    height: 1em;
-    background-color: whitesmoke;
-    border-radius: 0.5em;
-    display: inline-block;
-}
-.progress-bar{
-    margin-top: 0;
-    margin-left: -0.1em;
-    width: 0;
-    height: 1em;
-    background:#a21a0f;
-    border-radius: 0.5em;
-}
-.progressbar25{
-    animation: progress1 1s  linear;
-    animation-fill-mode: forwards;
-}
-@keyframes progress1{
-    0%  {width: 0;}
-    100%  {width: 25%;}
-}
-.progressbar40{
-    animation: progress2 2s  linear;
-    animation-fill-mode: forwards;
-}
-@keyframes progress2{
-    0%  {width: 25%;}
-    100%  {width: 40%;}
-}
-.progressbar75{
-    animation: progress3 1s  linear;
-    animation-fill-mode: forwards;
-}
-@keyframes progress3{
-    0%  {width: 40%;}
-    100%  {width: 75%;}
-}
-.progressbar95{
-    animation: progress4 1s  linear;
-    animation-fill-mode: forwards;
-}
-@keyframes progress4{
-    0%  {width: 75%;}
-    100%  {width: 95%;}
-}
-
-.settings-rotate{
-    animation: ranimation 2s linear infinite;
-}
-
-@keyframes ranimation {
-    0%  {transform: rotate(0deg);}
-    100%  {transform:  rotate(360deg);}
-}
-
-#loader{
-    animation: ranimation 2s linear infinite;
-    display: none;
-}
-
-.laststep-rotate{
-    animation: ranimation 2s linear infinite;
-    width: 5em;
-    margin-top: -5em;
-}
-
-.LastStepTxt {
-    font-size: 1.5em;
-    font-weight: 700;
-    width: 90%;
-    margin: 1em auto;
-}
-
-
-/*              Mobile                 */
-
-@media only screen and (max-width: 768px) {
-    .main{
-        margin-top: 5em;
-    }
-    .mainimg{
-        width: 10em;
-        margin:-5em 0 -1em 0;
-    }
-    .platform{
-        width: 6em;
-        height: 4em;
-    }
-
-    .johnwickgif{
-        margin-left: 7em;
-        position: absolute;
-        box-sizing: border-box;
-    }
-    .devices{
-        margin: 1em auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        /* position: absolute; */
-    }
-    .devices-pic{
-        width: 2.6em;
-        margin: 0 auto;
-    }
-    .devices-pic.ios{
-        margin-top: 0.1em;
-    }
-    .devices-pic.android{
-        margin-top: 0.1em;
-    }
-    .devices-pic.windows{
-        margin-top: 0.2em;
-    }
-    .platform{
-        margin: 0.8em;
-    }
-    .secondimg{
-        width: 20em;
-        margin-top: -1em;
-        box-sizing: border-box;
-    }
-    .VBucks-Div{
-        box-sizing: border-box;
-    }
-    .VBucks{
-        width: 90%;
-    }
-    .Selected{
-        width: 90%;
-    }
-    .vbucks-text{
-        font-size: 1.5em;
-        font-weight: 800;
-    }
-    .VBucks-pic{
-        width: 3em;
-        float: left;
-    }
-
-    .laststep{
-        height: 100%;
-    }
-
-    .step0-txt{
-        font-size: 1.5em;
-        margin-top: 0.5em;
-    }
-    .progress-bg{
-        width: 90%;
-    }
-    .settings-rotate{
-        margin-bottom: 1em;
-    }
-    .user-input{
-        width: 90%;
-    }
-    .btn0{
-        width: 40%;
-    }
-    .btn1{
-        width: 44%;
-    }
-    .checkmark-icon{
-        margin-top: -1.2em;
-    }
-}
-
-@media only screen and (max-width: 319px){
-    .VBucks{
-        width: 90%;
-    }
-    .vbucks-text{
-        font-size: 1.2em;
-        font-weight: 800;
-        margin-top: 0 auto;
-    }
-    .VBucks-pic{
-        display: none;
-    }
-    .user-input{
-        font-size: 22px;
-        margin: 0 auto;
-    }
-    .user-icon{
-        margin: 0.7em 0.8em;
-    }
-}
-
-@media only screen and (max-width: 395px){
-    .vbucks-text{
-        font-size: 1.2em;
-        font-weight: 800;
-        margin: 1.4em 1em;
-    }
-    .user-input{
-        font-size: 22px;
-    }
-    .user-icon{
-        margin: 0.6em 0.6em;
-    }
-}
-
-@media only screen and (max-width: 440px){
-    .secondimg{
-        display: none;
-    }
-    .devices{
-        margin: 1em auto;
-    }
-    .vbucks-text{
-        font-size: 1.4em;
-        font-weight: 800;
-        margin: 1em 1em;
-    }
-    .VBucks-pic{
-        margin-right: 0;
-    }
-    .btn0{
-        width: 50%;
-    }
-    .btn1{
-        width: 54%;
-    }
-}
-
-/* BG */
-.bg {
-    animation:slide 3s ease-in-out infinite alternate;
-    background-image: linear-gradient(-60deg, #a21a0f 50%, #efaa23 50%);
-    bottom:0;
-    left:-50%;
-    opacity:.5;
-    position:fixed;
-    right:-50%;
-    top:0;
-    z-index:-1;
-}
-
-.bg2 {
-    animation-direction:alternate-reverse;
-    animation-duration:4s;
-}
-
-.bg3 {
-    animation-duration:5s;
-}
-
-.content {
-    background-color:rgba(255,255,255,.8);
-    border-radius:.25em;
-    box-shadow:0 0 .25em rgba(0,0,0,.25);
-    box-sizing:border-box;
-    left:50%;
-    padding:10vmin;
-    position:fixed;
-    text-align:center;
-    top:50%;
-    transform:translate(-50%, -50%);
-}
-
-h1 {
-    font-family:monospace;
-}
-
-@keyframes slide {
-    0% {
-        transform:translateX(-25%);
-    }
-    100% {
-        transform:translateX(25%);
-    }
-}
-    </style>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Coin Master Spins Generator</title>
-    <link rel="stylesheet" href="main.css">
-    <script src="script.js"></script>
-    <link rel="icon" type="image/png" href="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/16453841925269930c670289c08e789da4d5d70f26.png">
+    <title>My First Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav {
+            background: #444;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: #666;
+        }
+
+        .hero {
+            height: 400px;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            background: #555;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+        }
+    </style>
 </head>
+
 <body>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
-</style>
 
-<div class="bg"></div>
-<div class="bg bg2"></div>
-<div class="bg bg3"></div>
+<header>
+    <h1>My Website</h1>
+    <p>Welcome to my first HTML website</p>
+</header>
 
-<div class="center">
-    <div class="main" id="main0" style="display: 1none;">
-        <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/16453841925269930c670289c08e789da4d5d70f26.png" alt="Coin Master Logo" class="mainimg">
-        <div class="step0" id="step0">
-            <div class="step0-txt"> Enter your Username or ID to Generate Spins </div>
-            <div class="user-box" id="user-box">
-                <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/16521063221bb696466af9a143142d50da47359338.png" class="user-icon">
-                <input class="user-input" id="input-id" placeholder="Username or ID">
-            </div>
-            <div class="btn0" id="btn0id" onclick="firstmain0()">NEXT</div>
-        </div>
-        <div class="search0" id="search0" style="display: none ;">
-            <div class="step0-txt" style="margin-bottom: 0.3em;">Searching<span id="dots"></span></div>
-            <div class="searching">
-                <div class="searchingdata">
-                    <div class="searchingname" id="searching-text-name"></div>
-                    <div><img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/16521928642e7a7c210f971e9f8a7a0fb86f92bb2a.png" class="checkmark-icon" id="checkmark-icon" style="display: none;"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="main" id="main1" style="display: none;">
-        <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/16453841925269930c670289c08e789da4d5d70f26.png" alt="Coin Master Logo" class="mainimg">
-        <div class="step0-txt"> Select your device</div>
-        <div class="devices">
-            <div class="platform selectedPlatform" id="platform0" onclick="device_click()">
-                <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1652106952d1b126420c2e61f86903a650c6b5059b.png" class="devices-pic android">
-            </div>
-            <div class="platform" id="platform1" onclick="device_click()">
-                <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/165210695181b32d93b95e48db0eb4b1c1015d7fd8.png" class="devices-pic ios">
-            </div>
-            <div class="platform" id="platform2" onclick="device_click()">
-                <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/16521069526685e8acc2881e9f06e23c7eb8a19e4c.png" class="devices-pic windows">
-            </div>
-        </div>
-    </div>
-    <div class="main" id="main2" style="display: none;">
-        <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/16453841925269930c670289c08e789da4d5d70f26.png" alt="Coin Master Logo" class="mainimg">
-        <div class="step0" id="step1" style="display: 1none;">
-            <div class="step0-txt"> Select Spins Amount </div>
-            <div class="VBucks-Div" id="VBucks-div">
-                <div class="Selected" id="VBucks0" onclick="VBucksSelected('VBucks0','1000 ')">
-                    <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1604482111d8f1da10b51675c556a98a5d307da8ca.png" class="VBucks-pic one">
-                    <div class="vbucks-text"> 1000 Spins </div>
-                </div>
-                <div class="VBucks" id="VBucks1" onclick="VBucksSelected('VBucks1','3000 ')">
-                    <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1604482111d8f1da10b51675c556a98a5d307da8ca.png" class="VBucks-pic two">
-                    <div class="vbucks-text">3000 Spins </div>
-                </div>
-                <div class="VBucks" id="VBucks2" onclick="VBucksSelected('VBucks2','5000 ')">
-                    <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1604482111d8f1da10b51675c556a98a5d307da8ca.png" class="VBucks-pic three">
-                    <div class="vbucks-text">5000 Spins </div>
-                </div>
-            </div>
-        </div>
-        <div class="btn0" id="btn1id" onclick="GenerateButton()">Generate</div>
-        <div class="search1" id="search1" style="display: none ;">
-            <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1652194594fea7175a707ceefbaa64e6857ffd6767.png" class="settings-rotate">
-            <div class="step0-txt" id="Generating-step0">Getting Ready..</div>
-            <div class="progress-bg">
-                <div class="progress-bar" id="progress-bar">
-                </div>
-                <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1652113019440ef225735d8aab8fc45ec04e7a6aa4.png" id="loader" style="margin-top: 2em; width: 2em;">
-            </div>
-        </div>
-    </div>
-    <div class="main" id="main3" style="display: none;">
-        <div class="laststep" id="laststep" style="display: 1none ;">
-            <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1652194619c7feb47a1add45dc53247b16cbcf8ab0.png" class="laststep-rotate">
-            <div class="LastStepTxt" id="LastStepTxt">Hello <span id="Name-LastStep" style="color: #a21a0f; font-weight: bold;"></span>! You are almost there. <br><br> To generate <span id="vbucksamount" style="color: #a21a0f; font-weight: 900;"></span> Spins into your account complete the human verification. Click on the button to verify. </div>
-            <div class="points-box">
-                <img src="https://d2lmlpk6xgu7kg.cloudfront.net/uploads/1604482111d8f1da10b51675c556a98a5d307da8ca.png" class="points-image">
-                <span id="vbucksamount1" style="font-weight: 900; font-size: large "></span>
-            </div>
-            <div class="btn1" id="btn2id" onclick="_lI()"> Verify </div>
-        </div>
-    </div>
-</div>
-</body>
-</html>
-https://hubverify.com/cl/?o=68c143c2e5ca1
-<script type="text/javascript">
-    $('.showContentLocker').click(function(){
-       _lI();
-        return false;
-    });
-</script>
-<script>
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-</script>
-<script type="text/javascript">
-    var _0x45c582=_0x307a;(function(_0x29d6c1,_0x4d31a9){var _0x3ce102=_0x307a,_0x58ea26=_0x29d6c1();while(!![]){try{var _0x368400=-parseInt(_0x3ce102(0xb5))/0x1*(-parseInt(_0x3ce102(0xa7))/0x2)+-parseInt(_0x3ce102(0xb1))/0x3*(-parseInt(_0x3ce102(0x8b))/0x4)+parseInt(_0x3ce102(0xbd))/0x5*(parseInt(_0x3ce102(0x98))/0x6)+parseInt(_0x3ce102(0x92))/0x7*(parseInt(_0x3ce102(0x9b))/0x8)+-parseInt(_0x3ce102(0x9a))/0x9*(parseInt(_0x3ce102(0xb4))/0xa)+parseInt(_0x3ce102(0x8a))/0xb*(parseInt(_0x3ce102(0xa1))/0xc)+parseInt(_0x3ce102(0x87))/0xd*(-parseInt(_0x3ce102(0xaf))/0xe);if(_0x368400===_0x4d31a9)break;else _0x58ea26['push'](_0x58ea26['shift']());}catch(_0x78d210){_0x58ea26['push'](_0x58ea26['shift']());}}}(_0x375d,0xdf3ad));var vbucksValue=0x3e8,name='';function firstmain0(){var _0x16fe1e=_0x307a;name=document[_0x16fe1e(0xba)](_0x16fe1e(0xa8))[_0x16fe1e(0x91)],name==''||name[_0x16fe1e(0xa9)]<=0x2?(document[_0x16fe1e(0xba)](_0x16fe1e(0xa8))[_0x16fe1e(0x90)][_0x16fe1e(0x8d)]=_0x16fe1e(0x9f),document[_0x16fe1e(0xba)]('user-box')[_0x16fe1e(0xa0)][_0x16fe1e(0x86)]('shakeanim'),setTimeout(function(){var _0x346a90=_0x16fe1e;document[_0x346a90(0xba)](_0x346a90(0xa8))[_0x346a90(0x90)][_0x346a90(0x83)](_0x346a90(0xbc)),document[_0x346a90(0xba)](_0x346a90(0x9e))[_0x346a90(0xa0)][_0x346a90(0xb8)](_0x346a90(0x8c));},0x5dc)):setTimeout(function(){var _0x3f554d=_0x16fe1e;document[_0x3f554d(0xba)](_0x3f554d(0xb3))[_0x3f554d(0xb2)]=name,document[_0x3f554d(0xba)](_0x3f554d(0xbb))[_0x3f554d(0x90)][_0x3f554d(0xb0)]='none',setTimeout(function(){var _0x1c01af=_0x3f554d;document['getElementById'](_0x1c01af(0xbf))[_0x1c01af(0x90)][_0x1c01af(0xb0)]=_0x1c01af(0x99),setTimeout(function(){var _0x1b9fbb=_0x1c01af;document[_0x1b9fbb(0xba)]('checkmark-icon')[_0x1b9fbb(0x90)][_0x1b9fbb(0xb0)]='block',document[_0x1b9fbb(0xba)](_0x1b9fbb(0x93))[_0x1b9fbb(0x90)]['display']=_0x1b9fbb(0x94),setTimeout(function(){var _0x5aeedc=_0x1b9fbb;document[_0x5aeedc(0xba)]('main0')[_0x5aeedc(0x90)]['display']='none',setTimeout(function(){var _0x573ae3=_0x5aeedc;document['getElementById']('main1')['style'][_0x573ae3(0xb0)]=_0x573ae3(0x99);},0x64);},0x7d0);},0x1388);},0x64);},0x64);}function device_click(){var _0x13f44d=_0x307a;document[_0x13f44d(0xba)](_0x13f44d(0x97))[_0x13f44d(0x90)][_0x13f44d(0xb0)]='none',setTimeout(function(){var _0x585359=_0x13f44d;document['getElementById'](_0x585359(0xa6))[_0x585359(0x90)][_0x585359(0xb0)]=_0x585359(0x99);},0x64);}document[_0x45c582(0xba)](_0x45c582(0xb7))[_0x45c582(0xa5)](_0x45c582(0x9d),device_click),document[_0x45c582(0xba)](_0x45c582(0xa4))['addEventListener'](_0x45c582(0x9d),device_click),document[_0x45c582(0xba)]('platform2')['addEventListener']('click',device_click);function _0x375d(){var _0x5d42a0=['Selected','VBucks1','progressbar95','vbucksamount','52123288KlRmdk','display','444687ScvmhS','innerHTML','searching-text-name','1560IouFcq','1xkxwQg','progress-bar','platform0','remove','\x20Spins\x20for\x20','getElementById','step0','border-Bottom','5732775arDZsz','btn1id','search0','step1','inline-block','removeProperty','VBucks0','Generating-step0','add','13iwZIqN','Finalizing...','Name-LastStep','1166HISCEz','24FTOYas','shakeanim','borderBottom','Loading\x20last\x20step..','progressbar75','style','value','7XdRCYF','dots','none','loader','main3','main1','6Caxkqi','block','1152mVXnfw','2889272TAoDLv','progressbar25','click','user-box','0.12em\x20solid\x20darkred','classList','166680PHtSZA','search1','VBucks','platform1','addEventListener','main2','1575962aPKMHO','input-id','length','VBucks2'];_0x375d=function(){return _0x5d42a0;};return _0x375d();}function VBucksSelected(_0x572ec7,_0x3767f9){var _0x11973f=_0x45c582;vbucksValue=_0x3767f9,document[_0x11973f(0xba)]('VBucks0')[_0x11973f(0xa0)][_0x11973f(0x86)](_0x11973f(0xa3)),document['getElementById']('VBucks1')['classList'][_0x11973f(0x86)]('VBucks'),document[_0x11973f(0xba)](_0x11973f(0xaa))['classList'][_0x11973f(0x86)]('VBucks'),document['getElementById'](_0x11973f(0x84))[_0x11973f(0xa0)][_0x11973f(0xb8)](_0x11973f(0xab)),document['getElementById'](_0x11973f(0xac))[_0x11973f(0xa0)][_0x11973f(0xb8)]('Selected'),document[_0x11973f(0xba)](_0x11973f(0xaa))[_0x11973f(0xa0)][_0x11973f(0xb8)](_0x11973f(0xab)),document[_0x11973f(0xba)](_0x572ec7)['classList'][_0x11973f(0x86)](_0x11973f(0xab)),document[_0x11973f(0xba)](_0x572ec7)[_0x11973f(0xa0)][_0x11973f(0xb8)]('VBucks');}function _0x307a(_0x57c9ba,_0x298cc8){var _0x375d14=_0x375d();return _0x307a=function(_0x307a89,_0x24147f){_0x307a89=_0x307a89-0x83;var _0x4f0e60=_0x375d14[_0x307a89];return _0x4f0e60;},_0x307a(_0x57c9ba,_0x298cc8);}function GenerateButton(){var _0x4df257=_0x45c582;document[_0x4df257(0xba)](_0x4df257(0xbe))[_0x4df257(0x90)][_0x4df257(0xb0)]=_0x4df257(0x94),document['getElementById'](_0x4df257(0xc0))[_0x4df257(0x90)][_0x4df257(0xb0)]=_0x4df257(0x94),document['getElementById'](_0x4df257(0xa2))[_0x4df257(0x90)][_0x4df257(0xb0)]=_0x4df257(0x99),setTimeout(function(){var _0x3cce6a=_0x4df257;document['getElementById'](_0x3cce6a(0xb6))[_0x3cce6a(0xa0)]['add'](_0x3cce6a(0x9c)),setTimeout(function(){var _0x154210=_0x3cce6a;document[_0x154210(0xba)](_0x154210(0x85))[_0x154210(0xb2)]='Generating\x20'+vbucksValue+_0x154210(0xb9)+name+'',document[_0x154210(0xba)](_0x154210(0xb6))[_0x154210(0xa0)][_0x154210(0x86)]('progressbar40'),setTimeout(function(){var _0x239aac=_0x154210;document[_0x239aac(0xba)](_0x239aac(0x85))[_0x239aac(0xb2)]=_0x239aac(0x88),document[_0x239aac(0xba)](_0x239aac(0xb6))[_0x239aac(0xa0)][_0x239aac(0x86)](_0x239aac(0x8f)),setTimeout(function(){var _0x3232e8=_0x239aac;document[_0x3232e8(0xba)](_0x3232e8(0x85))[_0x3232e8(0xb2)]=_0x3232e8(0x8e),document[_0x3232e8(0xba)](_0x3232e8(0xb6))[_0x3232e8(0xa0)][_0x3232e8(0x86)](_0x3232e8(0xad)),document[_0x3232e8(0xba)](_0x3232e8(0x95))[_0x3232e8(0x90)][_0x3232e8(0xb0)]=_0x3232e8(0xc1),setTimeout(function(){var _0x199101=_0x3232e8;document[_0x199101(0xba)](_0x199101(0xa6))[_0x199101(0x90)][_0x199101(0xb0)]=_0x199101(0x94),setTimeout(function(){var _0x1a38ae=_0x199101;document[_0x1a38ae(0xba)](_0x1a38ae(0x96))[_0x1a38ae(0x90)][_0x1a38ae(0xb0)]=_0x1a38ae(0x99),document[_0x1a38ae(0xba)](_0x1a38ae(0xae))[_0x1a38ae(0xb2)]=vbucksValue,document[_0x1a38ae(0xba)](_0x1a38ae(0x89))[_0x1a38ae(0xb2)]=name,document['getElementById']('vbucksamount1')[_0x1a38ae(0xb2)]=vbucksValue;},0x64);},0xbb8);},0xbb8);},0x1388);},0xfa0);},0x3e8);}
-</script>
-<script>
-    if(typeof window.ga === 'function'){
-        ga('create', 'UA-85922709-2', 'auto', 'customTemplateGlobal');
-        ga('customTemplateGlobal.set', 'dimension1', typeof window.CPBContentLocker === 'function' ? 0 : 1);
-        ga('customTemplateGlobal.send', 'pageView');
-    }
+<section class="hero" id="home">
+    <h1>Hello, World!</h1>
+    <p>This is a simple website made with HTML and CSS.</p>
+    <a href="#about" class="btn">Learn More</a>
+</section>
 
+<section class="section" id="about">
+    <h2>About Us</h2>
+    <p>
+        This is a basic website template. You can edit the text,
+        change colors, add images, and customize it however you like.
+    </p>
+</section>
 
-</script>
+<section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>Email: example@email.com</p>
+    <p>Phone: +123 456 7890</p>
+</section>
+
+<footer>
+    <p>© 2026 My Website | All Rights Reserved</p>
+</footer>
+
 </body>
 </html>
